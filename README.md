@@ -1,3 +1,44 @@
+README                        {#mainpage}
+======
+
+We create a sample which named `MYNT-EYE-VIORB-Sample` in viorb to show how to use our MYNT EYE camera.
+
+Please follow the steps below:
+
+1. Download MYNT EYE SDK [here](https://github.com/slightech/MYNT-EYE-SDK) and follow the tutorial to install it.
+
+2. Download MYNT-EYE-VIORB-Sample [here](https://github.com/slightech/MYNT-EYE-VIORB-Sample).
+
+3. Install dependencies follow the Original VIORB [here](https://github.com/jingpang/LearnVIORB ).
+
+4. Build with `build.sh`. Modify the path in `config/euroc.yaml`. 
+
+5. Add the path including *Examples/ROS/ORB_VIO* to the ROS_PACKAGE_PATH environment variable. Open .bashrc file and add at the end the following line. Replace PATH by the folder where you cloned MYNT-EYE-VIORB-Sample:
+
+  ```
+  export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:PATH/Examples/ROS/ORB_VIO
+  ```
+6. Go to */Examples/ROS/ORB_VIO* folder and Run application `camera` to public MYNT EYE camera data and imu data.
+  
+    ```
+    $ rosrun ORB_VIO camera 1 
+    ```
+
+    `1` stands for video1.
+
+7. Go to */Examples/ROS/ORB_VIO* folder and Run application `MYNTEYE_VIO`.
+
+    ```
+    $ roslaunch ORB_VIO mynteye.launch
+    ```
+
+    `mynteye.launch` is the config file.
+
+8. You could know the running effect through the video [here](https://www.youtube.com/watch?v=MB3Fxkj32a8).
+
+Below is the primary README of VIORB.
+---
+
 Realtime branch. 
 
 Modification: 

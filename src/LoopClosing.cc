@@ -126,10 +126,10 @@ bool LoopClosing::DetectLoop()
     {
         unique_lock<mutex> lock(mMutexLoopQueue);
         mpCurrentKF = mlpLoopKeyFrameQueue.front();
-        mlpLoopKeyFrameQueue.pop_front();
         // Avoid that a keyframe can be erased while it is being process by this thread
         mpCurrentKF->SetNotErase();
-    }
+    }        mlpLoopKeyFrameQueue.pop_front();
+
 
     //If the map contains less than 10 KF or less than 10 KF have passed from last loop detection
     if(mpCurrentKF->mnId<mLastLoopKFid+10)
@@ -301,7 +301,6 @@ bool LoopClosing::ComputeSim3()
     }
 
     bool bMatch = false;
-
     // Perform alternatively RANSAC iterations for each candidate
     // until one is succesful or all fail
     while(nCandidates>0 && !bMatch)
@@ -422,7 +421,7 @@ bool LoopClosing::ComputeSim3()
 
 void LoopClosing::CorrectLoop()
 {
-    cout << "Loop detected!" << endl;
+    cout << "Loop Corrected!" << endl;
 
     // Send a stop signal to Local Mapping
     // Avoid new keyframes are inserted while correcting the loop

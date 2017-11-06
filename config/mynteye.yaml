@@ -1,7 +1,7 @@
 %YAML:1.0
 
 # 1: realtime, 0: non-realtime
-test.RealTime: 0
+test.RealTime: 1
 # Time for visual-inertial initialization
 test.VINSInitTime: 15.0
 
@@ -22,7 +22,7 @@ test.DiscardTime: 0
 #bagfile: "/media/jp/JingpangPassport/3dataset/EuRoC-VIO/un_restamped/MH_04_difficult.bag"
 #bagfile: "/media/jp/JingpangPassport/3dataset/EuRoC-VIO/un_restamped/MH_05_difficult.bag"
 #bagfile: "/media/jp/JingpangPassport/3dataset/EuRoC-VIO/un_restamped/MH_02_easy.bag"
-bagfile: "/home/hl/workspace/mynteye/viorb1/LearnVIORB/dataset/MH_01_easy.bag"
+bagfile: "/media/jp/JingpangPassport/3dataset/EuRoC-VIO/un_restamped/MH_01_easy.bag"
 #bagfile: "/media/jp/JingpangPassport/3dataset/EuRoC-VIO/un_restamped/V2_02_medium.bag"
 #bagfile: "/media/jp/JingpangPassport/3dataset/EuRoC-VIO/un_restamped/V2_01_easy.bag"
 #bagfile: "/media/jp/JingpangPassport/3dataset/EuRoC-VIO/un_restamped/V1_02_medium.bag"
@@ -46,9 +46,9 @@ IMU.multiplyG: 0
 
 # camera-imu frame transformation, Pi = Tic * Pc
 Camera.Tbc:
- [0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
-  0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768,
-  -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949,
+ [0.00470444772975, -0.999621718374, 0.0270977550235, -0.000200126603188,
+  -0.999988508898, -0.00467773115137, 0.0010492389064, 0.0818072642837,
+  -0.000922085985798, -0.02710237973, -0.999632237761, -0.13283346767,
   0.0, 0.0, 0.0, 1.0]
 
 # Local Window size
@@ -59,21 +59,21 @@ LocalMapping.LocalWindowSize: 20
 #--------------------------------------------------------------------------------------------
 
 # Camera calibration and distortion parameters (OpenCV) 
-Camera.fx: 458.654
-Camera.fy: 457.296
-Camera.cx: 367.215
-Camera.cy: 248.375
+Camera.fx: 4.501204034709554e+02
+Camera.fy: 4.507917220444474e+02
+Camera.cx: 3.8583649427642735e+02
+Camera.cy: 2.2901915746961888e+02   
 
-Camera.k1: -0.28340811
-Camera.k2: 0.07395907
-Camera.p1: 0.00019359
-Camera.p2: 0.00001762 
+Camera.k1: -3.6162786242778283e-01
+Camera.k2: 1.9364949375702195e-01
+Camera.p1: 1.8417637165743935e-03
+Camera.p2: 8.500730204061938e-04
 
 Camera.width: 752
 Camera.height: 480
 
 # Camera frames per second 
-Camera.fps: 20.0
+Camera.fps: 25.0
 
 # IR projector baseline times fx (aprox.)
 Camera.bf: 40.0

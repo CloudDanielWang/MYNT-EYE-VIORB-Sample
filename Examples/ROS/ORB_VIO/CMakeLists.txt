@@ -30,7 +30,7 @@ endif()
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/../../../cmake_modules)
 
-find_package(OpenCV 2.4.3 REQUIRED)
+find_package(OpenCV 3.2.0 REQUIRED)
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
@@ -51,6 +51,14 @@ ${PROJECT_SOURCE_DIR}/../../../Thirdparty/g2o/lib/libg2o.so
 ${PROJECT_SOURCE_DIR}/../../../lib/libORB_SLAM2.so
 )
 
+#add mynteye
+if(DEFINED ENV{MYNTEYE_SDK_ROOT})
+    set(MYNTEYE_SDK_DIR $ENV{MYNTEYE_SDK_ROOT})
+endif()
+
+set(MYNTEYE_SDK_LIB_DIR ${MYNTEYE_SDK_DIR}/lib)
+include_directories(${MYNTEYE_SDK_DIR}/include)
+
 # Node for monocular camera
 rosbuild_add_executable(VIO
 src/ros_vio.cc
@@ -61,5 +69,39 @@ src/MsgSync/MsgSynchronizer.h
 target_link_libraries(VIO
 ${LIBS}
 )
+
+
+# Node for monocular MYNTEYE
+rosbuild_add_executable(MYNTEYE_VIO
+src/ros_mynteye_vio.cc
+src/MsgSync/Mynteye_MsgSynchronizer.cpp
+src/MsgSync/MsgSynchronizer.h
+)
+
+target_link_libraries(MYNTEYE_VIO
+${LIBS}
+)
+
+# Node for MYNTEYE MESSAGE
+rosbuild_add_executable(camera
+src/camera.cc
+)
+
+target_link_libraries(camera
+${LIBS}
+${MYNTEYE_SDK_LIB_DIR}/libmynteye_core.so
+)
+
+# Node for MYNTEYE IMU
+
+#rosbuild_add_executable(IMU
+#src/imu.cc
+#)
+
+#target_link_libraries(VIO
+#${LIBS}
+#${MYNTEYE_SDK_LIB_DIR}
+#)
+
 
 
