@@ -34,7 +34,7 @@ Please follow the steps below:
 
     `mynteye.launch` is the config file.
 
-8. You could know the running effect through the video [here](https://www.youtube.com/watch?v=MB3Fxkj32a8).
+8. You could know the running effect through the video [here](https://youtu.be/UwbBxZY9GCw).
 
 Below is the primary README of VIORB.
 ---
