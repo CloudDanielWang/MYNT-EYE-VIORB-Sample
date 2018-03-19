@@ -26,7 +26,7 @@ Please follow the steps below:
 
     `1` stands for video1.
 
-7. Go to */Examples/ROS/ORB_VIO* folder and Run application `MYNTEYE_VIO`.
+7. Keep running step 6 rosrun and open a new terminal. Go to `*/Examples/ROS/ORB_VIO*` folder and Run application `MYNTEYE_VIO`.
 
     ```
     $ roslaunch ORB_VIO mynteye.launch
